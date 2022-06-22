@@ -3,7 +3,7 @@ const request=require('request')
 
 
 const geocode=(address,callback)=>{
-    const url='https://api.geoapify.com/v1/geocode/search?text=' + address+ '&lang=en&limit=1&type=city&format=json&apiKey=d548c5ed24604be6a9dd0d989631f783'
+    const url='https://api.geoapify.com/v1/geocode/search?text='+address+'&lang=en&limit=1&type=city&format=json&apiKey=d548c5ed24604be6a9dd0d989631f783'
   
     // request({url:url,json:true},(error,response)=>{
        
@@ -33,7 +33,7 @@ const geocode=(address,callback)=>{
       if(error){
         callback('Unable to connect to location services',undefined)
      
-      }else if(body.results.length===0){
+      }else if(body.error){
         callback('Unable to find the locatioin, try again later',undefined)
       }else{
      callback(undefined,{
@@ -57,7 +57,7 @@ const geocode=(address,callback)=>{
   
   
   
- 
+    
 
 
 
